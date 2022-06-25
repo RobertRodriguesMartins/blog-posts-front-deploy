@@ -1,5 +1,3 @@
-import { RequestHandler } from "express"
-
 export interface News {
   id?: number,
   title: string,
