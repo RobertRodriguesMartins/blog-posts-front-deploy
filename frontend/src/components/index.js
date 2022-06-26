@@ -3,6 +3,4 @@ import News from "./News";
 
 export default NavBar;
 
-export {
-  News
-};
+export { News };
