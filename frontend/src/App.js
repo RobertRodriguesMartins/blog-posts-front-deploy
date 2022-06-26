@@ -1,16 +1,19 @@
 import React from 'react';
 import NavBar from './components/';
-import { News } from './components/';
+import { News, Footer } from './components/';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="app">
+      <header className="app-header">
         <NavBar />
       </header>
       <section className='app-news-section'>
         <News />
       </section>
+      <footer className='footer-wrapper'>
+        <Footer />
+      </footer>
     </div>
   );
 }
