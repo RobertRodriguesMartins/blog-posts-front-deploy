@@ -1,5 +1,5 @@
 const initialState = {
-  Allnews: [],
+  allNews: [],
   createdNews: [],
   inProgressNew: {}
 }
@@ -9,7 +9,7 @@ const newsReducer = (state = initialState, action) => {
     case 'news/getAll':
       return {
         ...state,
-        Allnews: action.payload
+        allNews: action.payload
       }
     default:
       return state;
