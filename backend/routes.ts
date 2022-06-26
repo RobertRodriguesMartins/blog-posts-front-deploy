@@ -7,5 +7,6 @@ const news = new NewsController();
 
 routes.post('/', news.create);
 routes.get('/', news.findAll);
+routes.get('/:id', news.findById);
 
 export default routes;

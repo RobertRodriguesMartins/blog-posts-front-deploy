@@ -21,11 +21,31 @@ class NewsController {
     try {
       const data = await this.service.findAll();
       if(data.length < 1) {
-        res.sendStatus(404);
+        res.status(200).json([]);
         return
       }
 
       res.status(200).json(data);
+      return
+    } catch (e) {
+      res.sendStatus(500);
+      return
+    }
+  }
+
+  public findById = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const id = Number(req.params.id);
+      const valid = await this.service.exists(id);
+
+      if(!valid) {
+        res.status(404).json({ message: 'Noticia não encontrada!' })
+        return
+      }
+
+      const newsLetter = await this.service.findById(id);
+
+      res.status(200).json(newsLetter);
       return
     } catch (e) {
       res.sendStatus(500);

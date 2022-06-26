@@ -42,6 +42,23 @@ class NewsModel implements NewsEntity<News> {
     const news = data as News[]
     return news;
   }
+
+  public exists = async (id: number): Promise<boolean> => {
+    const query = 'SELECT 1 FROM devMedia.news WHERE id = ?';
+    const [[item]] = await this.db.query<RowDataPacket[]>(query, [id]);
+
+    if(item) {
+      return true
+    }
+    return false
+  }
+
+  public findById = async (id: number): Promise<News> => {
+    const query = 'SELECT * FROM devMedia.news WHERE id = ?';
+    const [[item]] = await this.db.query<RowDataPacket[]>({sql: query, rowsAsArray: false}, [id]);
+    const response = item as News;
+    return response;
+  }
 }
 
 export default NewsModel;
