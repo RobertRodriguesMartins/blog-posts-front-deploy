@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllThunk } from "../redux/action/news";
+import { allThunk } from "../redux/action/news";
 import NewsCard from "./NewsCard";
 
 const feedReset = 70000
@@ -10,10 +10,10 @@ function News() {
 
   useEffect(() => {
     const id = setInterval(() => {
-      dispatch(getAllThunk());// <-- (3) invoke in interval callback
+      dispatch(allThunk());// <-- (3) invoke in interval callback
     }, feedReset);
 
-    dispatch(getAllThunk()); // <-- (2) invoke on mount
+    dispatch(allThunk()); // <-- (2) invoke on mount
 
     return () => clearInterval(id);
   }, []);
@@ -22,12 +22,17 @@ function News() {
   return (
     <>
       <h2>Todas as noticias</h2>
-      <section>
-        {
-          allNews && allNews.length > 0 ?
-            <NewsCard news={allNews} />
-            : <h2>Sem noticias no momento... :0</h2>
-        }
+      <section className="app-news-card-wrapper">
+        <section className="app-news-card-section">
+          <section className="app-news-card-article-wrapper">
+            {
+              allNews && allNews.length > 0 ?
+                allNews.map((notice) => {
+                  return <NewsCard news={notice} key={notice.id} />
+                }) : <h2>Sem noticias no momento... :0</h2>
+            }
+          </section>
+        </section>
       </section>
     </>
   )

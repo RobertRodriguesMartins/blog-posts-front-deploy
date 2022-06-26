@@ -1,31 +1,23 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 
 function NewsCard(props) {
 
-  const allNews = props.news;
+  const notice = props.news;
   return (
-    <>
-      <h1>Noticias</h1>
-      <section>
-        {
-          allNews && allNews.map((notice) => {
-            return (
-              <article key={notice.id}>
-                <h1>{notice.title}</h1>
-                <p>{notice.content}</p>
-                <span>{notice.category}</span>
-              </article>
-            )
-          })
-        }
-      </section>
-    </>
+    <article>
+      <Link to={`/news/${notice.id}`}>
+        <h1>{notice.title}</h1>
+        <p>{notice.content}</p>
+        <span>{notice.category_name}</span>
+      </Link>
+    </article>
   )
 }
 
 NewsCard.propTypes = {
-  news: PropTypes.arrayOf(PropTypes.any)
+  news: PropTypes.object
 }
 
 export default NewsCard;
