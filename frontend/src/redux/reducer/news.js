@@ -2,7 +2,8 @@ const initialState = {
   allNews: [],
   createdNews: [],
   inProgressNew: {},
-  specificNews: {}
+  specificNews: {},
+  form: ''
 }
 
 const newsReducer = (state = initialState, action) => {
@@ -16,6 +17,11 @@ const newsReducer = (state = initialState, action) => {
       return {
         ...state,
         specificNews: action.payload
+      }
+    case 'news/create':
+      return {
+        ...state,
+        form: action.payload ? 'error' : 'submitted'
       }
     default:
       return state;
