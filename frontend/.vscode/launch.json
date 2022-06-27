@@ -1,10 +1,10 @@
 {
   "configurations": [
     {
-      "name": "Launch Chrome",
-      "request": "attach",
-      "type": "chrome",
-      "url": "http://localhost:3000",
+      "name": "debug",
+      "request": "launch",
+      "type": "pwa-chrome",
+      "url": "http://localhost:3000/",
       "webRoot": "${workspaceFolder}"
     }
   ]

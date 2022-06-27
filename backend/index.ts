@@ -9,11 +9,13 @@ const app = express();
 
 const PORT = Number(process.env.PORT);
 
+app.use(cors({
+  origin: '*',
+  allowedHeaders: ['Content-Type'],
+  methods: ['GET', 'PUT', 'POST'],
+}))
 //parse body from request
 app.use(express.json())
-app.use(cors({
-  allowedHeaders: 'Access-Control-Allow-Origin: *'
-}))
 
 //use router file
 app.use(routes)

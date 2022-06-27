@@ -23,20 +23,16 @@ class NewsModel implements NewsEntity<News> {
     const categoryFound = await this.findCategory(categoryName);
 
     try {
-      const processes = [
-        this.db.execute(query2, [title, content, categoryName]),
-      ];
-
-      if (categoryFound.length < 1) processes.push(this.db.execute(query1, [categoryName]));
-
-      const [response] = await Promise.all(processes);
+      if (categoryFound.length < 1) await this.db.execute(query1, [categoryName]);
+      
+      await this.db.execute(query2, [title, content, categoryName]);
       return
     } catch (e) {
       throw new Error('something wrong happened');
     }
   }
   public findAll = async (): Promise<News[]> => {
-    const query = 'SELECT * FROM devMedia.news;'
+    const query = 'SELECT * FROM devMedia.news ORDER BY id DESC;'
     const [data] = await this.db.execute<RowDataPacket[]>(query);
 
     const news = data as News[]
