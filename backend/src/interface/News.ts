@@ -5,7 +5,14 @@ export interface News {
   categoryName: string
 }
 
-export default interface NewsEntity<T extends News> {
+export interface RawNews {
+  id: number,
+  title: string,
+  content: string,
+  category_name: string
+}
+
+export default interface NewsEntity<T extends News | RawNews | RawNews[]> {
   findAll(params: T): Promise<T | News[] | void>
   create(params: T): Promise<T | void>
 }

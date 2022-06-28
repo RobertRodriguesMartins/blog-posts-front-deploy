@@ -1,16 +1,39 @@
-import NewsEntity, { News } from '../interface/News';
+import NewsEntity, { News, RawNews } from '../interface/News';
 import connection from '../model/db/connection';
 import NewsModel from '../model/News';
 
 class NewsService implements NewsEntity<News> {
   private newsModel: NewsModel = new NewsModel(connection);
 
+  private hidrate = <T extends RawNews[] | RawNews>(notice: T): News | News[] => {
+    if (Array.isArray(notice)) {
+      const hidratedData: News[] = []
+      notice.forEach((letter) => {
+        const { category_name, ...rest } = letter;
+        hidratedData.push({
+          ...rest,
+          categoryName: category_name
+        })
+      })
+
+      return hidratedData;
+    } 
+    return {
+      id: notice.id,
+      content: notice.content,
+      title: notice.title,
+      categoryName: notice.category_name
+    }
+  }
+
   public create = async (notice: News): Promise<News | void> => {
     return this.newsModel.create(notice);
   }
 
   public findAll = async (): Promise<News[]> => {
-    return this.newsModel.findAll();
+    const rawData = await this.newsModel.findAll()
+    const data = this.hidrate<RawNews[]>(rawData)
+    return data as News[]
   }
 
   public exists = async (id: number): Promise<boolean> => {
@@ -18,7 +41,9 @@ class NewsService implements NewsEntity<News> {
   }
 
   public findById = async (id: number): Promise<News> => {
-    return this.newsModel.findById(id);
+    const rawData = await this.newsModel.findById(id);
+    const data = this.hidrate<RawNews>(rawData);
+    return data as News;
   }
 }
 
