@@ -1,8 +1,8 @@
 import { Pool } from 'mysql2/promise';
-import NewsEntity, { News } from '../interface/News';
+import NewsEntity, { News, RawNews } from '../interface/News';
 import { RowDataPacket } from 'mysql2';
 
-class NewsModel implements NewsEntity<News> {
+class NewsModel implements NewsEntity<News | RawNews | RawNews[]> {
   constructor(private db: Pool) { }
 
   private findCategory = async (category: string): Promise<RowDataPacket[]> => {
@@ -31,11 +31,11 @@ class NewsModel implements NewsEntity<News> {
       throw new Error('something wrong happened');
     }
   }
-  public findAll = async (): Promise<News[]> => {
+  public findAll = async (): Promise<RawNews[]> => {
     const query = 'SELECT * FROM devMedia.news ORDER BY id DESC;'
     const [data] = await this.db.execute<RowDataPacket[]>(query);
 
-    const news = data as News[]
+    const news = data as RawNews[]
     return news;
   }
 
@@ -49,10 +49,10 @@ class NewsModel implements NewsEntity<News> {
     return false
   }
 
-  public findById = async (id: number): Promise<News> => {
+  public findById = async (id: number): Promise<RawNews> => {
     const query = 'SELECT * FROM devMedia.news WHERE id = ?';
     const [[item]] = await this.db.query<RowDataPacket[]>({sql: query, rowsAsArray: false}, [id]);
-    const response = item as News;
+    const response = item as RawNews;
     return response;
   }
 }
