@@ -148,6 +148,11 @@ a {
   flex-grow: 1;
 }
 
+.app-news-card-article-wrapper article p {
+  word-break: break-all;
+  font-size: 10px;
+}
+
 .app-header {
   background: rgba(223, 223, 223, 1);
   position: fixed;
