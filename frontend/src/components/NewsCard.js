@@ -10,7 +10,7 @@ function NewsCard(props) {
       <Link to={`/news/${notice.id}`}>
         <h1>{notice.title}</h1>
         <p>{notice.content}</p>
-        <span>{notice.category_name}</span>
+        <span>{notice.categoryName}</span>
       </Link>
     </article>
   )
