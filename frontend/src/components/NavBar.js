@@ -1,10 +1,28 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { BsSearch } from "react-icons/bs";
 import { HiDotsVertical } from "react-icons/hi";
 
 function NavBar() {
   const { pathname } = useLocation();
+
+  const [isNavOpened, setIsNavOpened] = useState(false);
+
+  function openNav() {
+    document.getElementsByTagName("nav")[0].setAttribute("class", "sidebar");
+    document
+      .getElementsByClassName("nav-tools")[0]
+      .setAttribute("class", "temp");
+    setIsNavOpened(true);
+  }
+
+  function closeNav() {
+    document
+      .getElementsByClassName("temp")[0]
+      .setAttribute("class", "nav-tools");
+    document.getElementsByTagName("nav")[0].setAttribute("class", "");
+    setIsNavOpened(false);
+  }
 
   useEffect(() => {
     document
@@ -14,7 +32,7 @@ function NavBar() {
   return (
     <nav className="nav-menu">
       <Link to="/">
-        <h2>Portal Robert News</h2>
+        <h2>Blog Posts</h2>
       </Link>
       <section className="nav-tools">
         <ul>
@@ -22,9 +40,9 @@ function NavBar() {
             <li id="/">Home</li>
           </Link>
           <Link to="/news/create">
-            <li id="/news/create">Criar Noticia</li>
+            <li id="/news/create">Criar Post</li>
           </Link>
-          <li>Minhas Noticias</li>
+          <li>Meus Posts</li>
         </ul>
         <section className="search">
           <label htmlFor="search">
@@ -33,11 +51,14 @@ function NavBar() {
           <input
             id="search"
             type="text"
-            placeholder="Buscar noticias..."
+            placeholder="Buscar author, posts..."
           ></input>
         </section>
       </section>
-      <section className="mobile-nav-menu">
+      <section
+        className="mobile-nav-menu"
+        onClick={isNavOpened ? closeNav : openNav}
+      >
         <HiDotsVertical className="nav-icon" />
       </section>
     </nav>
