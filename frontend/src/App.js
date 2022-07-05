@@ -1,6 +1,6 @@
-import React from "react";
-import NavBar from "./components/";
-import { News, Footer } from "./components/";
+import React from 'react';
+import NavBar from './components/';
+import { News, Footer } from './components/';
 
 function App() {
   return (
