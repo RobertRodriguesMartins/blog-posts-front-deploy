@@ -7,12 +7,16 @@ function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<App />} />
-        <Route path='/news/create' element={<CreateNews />} />
-        <Route path='/news/:id' element={<NewsDetails />} />
+        <Route path="/" element={<App />} />
+        <Route path="/news/create" element={<CreateNews />} />
+        <Route path="/news/:id" element={<NewsDetails />} />
+        <Route
+          path="*"
+          element={<h1>Rota inválida, recurso não enontrado :/</h1>}
+        />
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
 export default Router;
