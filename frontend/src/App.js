@@ -8,10 +8,10 @@ function App() {
       <header className="app-header">
         <NavBar />
       </header>
-      <section className='app-news-section'>
+      <section className="app-news-section">
         <News />
       </section>
-      <footer className='footer-wrapper'>
+      <footer className="footer-wrapper">
         <Footer />
       </footer>
     </div>

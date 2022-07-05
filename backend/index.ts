@@ -10,7 +10,6 @@ const app = express();
 const PORT = Number(process.env.PORT);
 
 app.use(cors({
-  origin: '*',
   allowedHeaders: ['Content-Type'],
   methods: ['GET', 'PUT', 'POST'],
 }))
