@@ -45,6 +45,16 @@ class NewsService implements NewsEntity<News> {
     const data = this.hidrate<RawNews>(rawData);
     return data as News;
   }
+
+  public maxOffset = async (): Promise<number> => {
+    const rawData = await this.newsModel.maxOffset();
+    return rawData;
+  }
+  public some = async (offset: number): Promise<News[]> => {
+    const rawData = await this.newsModel.some(offset);
+    const data = this.hidrate<RawNews[]>(rawData);
+    return data as News[];
+  }
 }
 
 export default NewsService;
