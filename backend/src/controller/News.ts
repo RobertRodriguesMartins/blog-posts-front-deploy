@@ -52,6 +52,32 @@ class NewsController {
       return
     }
   }
+
+  public maxOffset = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const maxOffset = await this.service.maxOffset();
+
+      res.status(200).json(maxOffset);
+      return
+    } catch (e) {
+      res.sendStatus(500);
+      return
+    }
+  }
+
+  public some = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const { q: offset } = req.query;
+
+      const posts = await this.service.some(Number(offset));
+
+      res.status(200).json(posts);
+      return
+    } catch (e) {
+      res.sendStatus(500);
+      return
+    }
+  }
 }
 
 export default NewsController;
