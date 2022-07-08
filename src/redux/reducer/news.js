@@ -5,6 +5,7 @@ const initialState = {
   maxOffset: 0,
   actualOffset: 0,
   form: '',
+  totalPosts: 0
 };
 
 const newsReducer = (state = initialState, action) => {
@@ -39,6 +40,18 @@ const newsReducer = (state = initialState, action) => {
         ...state,
         maxOffset: action.payload,
       };
+    case 'set/totalPosts':
+      return {
+        ...state,
+        totalPosts: action.payload,
+      };
+    case 'reset':
+      return {
+        ...state,
+        allNews: [],
+        maxOffset: 0,
+        actualOffset: 0
+      }
     default:
       return state;
   }
