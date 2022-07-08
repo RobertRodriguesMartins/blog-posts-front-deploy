@@ -10,7 +10,7 @@ function News() {
   }, [allNews]);
   return (
     <>
-      <h2>Todas as noticias</h2>
+      <h2>Todis os Posts</h2>
       <section className="app-news-card-wrapper">
         <section className="app-news-card-section">
           <section className="app-news-card-article-wrapper">
