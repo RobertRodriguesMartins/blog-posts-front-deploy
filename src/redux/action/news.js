@@ -22,16 +22,29 @@ export const create = (payload) => {
   };
 };
 
-export const setOffset = (offset) => {
+export const maxOffset = (offset) => {
   return {
-    type: 'offset/add',
+    type: 'offset/max',
     payload: offset,
   };
 };
 
-export const maxOffset = (offset) => {
+export const reset = () => {
   return {
-    type: 'offset/max',
+    type: 'reset',
+  };
+};
+
+export const setLastPostsNumber = (payload) => {
+  return {
+    type: 'set/totalPosts',
+    payload: payload
+  }
+}
+
+export const setOffset = (offset) => {
+  return {
+    type: 'offset/add',
     payload: offset,
   };
 };
@@ -57,7 +70,7 @@ export const someThunk = (offset) => async (dispatch) => {
     });
 
     const response = await rawData.json();
-    console.log(response);
+    console.log(response, offset);
 
     dispatch(all(response));
   } catch (e) {
