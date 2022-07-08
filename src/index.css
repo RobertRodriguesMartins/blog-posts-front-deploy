@@ -415,6 +415,9 @@ a {
   .app-news-create-form-wrapper section:nth-child(1) {
     border: none;
   }
+  .app-news-create-form-wrapper section:nth-child(2) {
+    display: none;
+  }
 
   .app-news-create-form-wrapper section {
     margin-top: 10px;
@@ -423,7 +426,6 @@ a {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    min-height: -webkit-fill-available;
   }
 
   .app-news-create-form-wrapper h1 {
