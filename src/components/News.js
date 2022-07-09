@@ -21,7 +21,7 @@ function News() {
                 );
               })
             ) : (
-              <h2>Sem noticias no momento... :0</h2>
+              <h2>Não consegui carregar os posts... :0</h2>
             )}
           </section>
         </section>
