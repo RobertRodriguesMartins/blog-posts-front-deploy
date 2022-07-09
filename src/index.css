@@ -327,9 +327,24 @@ a {
   font-size: 30px;
 }
 
+.app-news-card-article-wrapper article p {
+  animation: text-animation 5s ease alternate infinite;
+  width: 80%;
+}
+
 @keyframes fade {
   to {
     opacity: 1;
+  }
+}
+
+@keyframes text-animation {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(15%);
   }
 }
 
