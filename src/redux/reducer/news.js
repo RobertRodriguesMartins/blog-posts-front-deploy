@@ -45,6 +45,11 @@ const newsReducer = (state = initialState, action) => {
         ...state,
         totalPosts: action.payload,
       };
+    case 'set/form':
+      return {
+        ...state,
+        form: action.payload,
+      };
     case 'reset':
       return {
         ...state,
