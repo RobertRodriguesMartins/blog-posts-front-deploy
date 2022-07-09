@@ -60,6 +60,7 @@ a {
 
 .nav-menu h2 {
   margin: 0;
+  background: rgba(223, 223, 223, 1);
   font-family: arial;
 }
 
@@ -128,12 +129,13 @@ a {
 
 .app-news-details-wrapper article {
   width: 80%;
-  height: 80%;
   display: flex;
   justify-content: center;
-  background: white;
+  background: #888;
+  opacity: 0;
   border-radius: 5px;
   font-family: arial;
+  animation: fade 3s ease forwards;
 }
 
 .app-news-details-wrapper a {
@@ -142,12 +144,16 @@ a {
   flex-grow: 1;
   justify-content: flex-start;
   align-items: center;
-  padding: 20px 0;
+  padding: 20px 15px;
   background: rgba(245, 245, 245, 0.8);
   border: 1px solid rgba(222, 222, 222, 1);
   width: 100%;
   border-radius: 2px;
   box-shadow: 0 1px 2px rgb(50 50 50 / 10%), 0 2px 4px rgb(60 60 60 / 10%);
+}
+
+.app-news-details-wrapper span {
+  place-self: flex-start;
 }
 
 .app-news-details-wrapper p {
@@ -163,6 +169,7 @@ a {
   height: 100%;
   display: flex;
   margin: 0 50px;
+  position: relative;
 }
 
 .app-news-card-section {
@@ -208,15 +215,25 @@ a {
   flex-wrap: wrap;
   justify-content: space-evenly;
   flex-grow: 1;
+  position: absolute;
+  top: 0;
+  overflow-x: hidden;
+  z-index: 0;
+  left: 0;
 }
 
 .app-news-card-article-wrapper article {
   overflow-y: overlay;
+  opacity: 0;
+  background-color: #888;
+  animation: fade 2s ease forwards;
 }
 
 .app-news-card-article-wrapper article p {
+  animation: text-animation 5s ease alternate infinite;
   word-break: break-all;
   font-size: 25px;
+  width: 100%;
 }
 
 .app-news-card-article-wrapper article h1 {
@@ -231,6 +248,7 @@ a {
   width: 100%;
   left: 0;
   top: 0;
+  z-index: 1;
 }
 
 .footer-wrapper {
@@ -327,14 +345,13 @@ a {
   font-size: 30px;
 }
 
-.app-news-card-article-wrapper article p {
-  animation: text-animation 5s ease alternate infinite;
-  width: 80%;
-}
-
 @keyframes fade {
+  from {
+    background-color: #888;
+  }
   to {
     opacity: 1;
+    background-color: white;
   }
 }
 
@@ -345,6 +362,16 @@ a {
 
   to {
     transform: translateY(15%);
+  }
+}
+
+@keyframes come-from-left {
+  from {
+    transform: translateX(-101%);
+  }
+
+  to {
+    transform: translateX(0%);
   }
 }
 
@@ -408,6 +435,18 @@ a {
   .app-news-card-article-wrapper article {
     margin-left: 0;
     width: 80%;
+    height: 150px;
+  }
+
+  .app-news-card-article-wrapper article p {
+    animation: none;
+    height: 35%;
+    display: flex;
+  }
+  .app-news-card-article-wrapper article h1,
+  .app-news-card-article-wrapper article p,
+  .app-news-card-article-wrapper article span {
+    font-size: 16px;
   }
 
   .sidebar {
@@ -421,7 +460,7 @@ a {
     color: white;
     overflow-x: hidden;
     padding-top: 60px;
-    transition: 0.5s;
+    transition: ease-in-out 0.5s;
     flex-direction: column;
   }
 
