@@ -8,7 +8,7 @@ body {
 }
 
 body {
-  font-family: -apple-system, "Roboto";
+  font-family: -apple-system, 'Roboto';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -276,12 +276,17 @@ a {
   align-items: center;
 }
 
-.app-news-create-form-wrapper form input {
+.app-news-create-form-wrapper input {
   width: 80%;
   margin-bottom: 20px;
 }
 
-.app-news-create-form-wrapper form textarea {
+.app-news-create-form-wrapper button {
+  width: 30%;
+  padding: 10px;
+}
+
+.app-news-create-form-wrapper textarea {
   width: 80%;
 }
 
@@ -300,6 +305,32 @@ a {
   display: flex;
   flex-direction: column;
   flex-basis: 30%;
+}
+
+.sucess-send-post {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  justify-content: center;
+}
+
+.text-reveal {
+  position: relative;
+  overflow: hidden;
+}
+
+.text-reveal h2 {
+  animation: fade 1s ease alternate infinite;
+  opacity: 0;
+  font-size: 30px;
+}
+
+@keyframes fade {
+  to {
+    opacity: 1;
+  }
 }
 
 .current-nav-section {
@@ -450,7 +481,8 @@ a {
     font-family: fantasy;
   }
 
-  .app-news-create-form-wrapper input, textarea {
+  .app-news-create-form-wrapper input,
+  textarea {
     border: none;
     box-shadow: 0 1px 2px rgb(50 50 50 / 10%), 0 2px 4px rgb(60 60 60 / 10%);
   }
