@@ -38,14 +38,21 @@ export const reset = () => {
 export const setLastPostsNumber = (payload) => {
   return {
     type: 'set/totalPosts',
-    payload: payload
-  }
-}
+    payload: payload,
+  };
+};
 
 export const setOffset = (offset) => {
   return {
     type: 'offset/add',
     payload: offset,
+  };
+};
+
+export const setForm = (payload) => {
+  return {
+    type: 'set/form',
+    payload: payload,
   };
 };
 
@@ -70,7 +77,6 @@ export const someThunk = (offset) => async (dispatch) => {
     });
 
     const response = await rawData.json();
-    console.log(response, offset);
 
     dispatch(all(response));
   } catch (e) {
