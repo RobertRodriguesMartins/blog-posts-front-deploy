@@ -1,7 +1,7 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { createThunk } from "../redux/action/news";
-import NavBar from "./NavBar";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { createThunk, setForm } from '../redux/action/news';
+import NavBar from './NavBar';
 
 function CreateNews() {
   const dispatch = useDispatch();
@@ -11,13 +11,19 @@ function CreateNews() {
     dispatch(createThunk(form));
   }
 
+  useEffect(() => {
+    if (form === 'submitted') {
+      setTimeout(() => dispatch(setForm('')), 2000);
+    }
+  }, [form]);
+
   return (
     <div className="app-news-create-wrapper">
       <header className="app-header">
         <NavBar />
       </header>
       <section className="app-news-create-form-wrapper">
-        {form !== "submitted" ? (
+        {form !== 'submitted' ? (
           <section>
             <h1>Edite seu Post</h1>
             <form method="POST" onSubmit={submitForm}>
@@ -31,10 +37,14 @@ function CreateNews() {
             </form>
           </section>
         ) : (
-          <div>Enviado com sucesso!</div>
+          <section className="sucess-send-post">
+            <div className="text-reveal">
+              <h2>Enviado com sucesso!</h2>
+            </div>
+          </section>
         )}
         <section className="app-news-create-lastnews ">
-          <h2>Últimos Posts!</h2>
+          <h2>Meus Posts</h2>
           <div>Em breve...</div>
         </section>
       </section>
