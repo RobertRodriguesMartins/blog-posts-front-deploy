@@ -213,6 +213,7 @@ a {
 .app-news-card-article-wrapper {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
   justify-content: space-evenly;
   flex-grow: 1;
   position: absolute;
