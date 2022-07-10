@@ -7,8 +7,9 @@ function CreateNews() {
   const dispatch = useDispatch();
   const form = useSelector((state) => state.news.form);
 
-  function submitForm(form) {
-    dispatch(createThunk(form));
+  function submitForm() {
+    const myForm = document.getElementById('post');
+    dispatch(createThunk(myForm));
   }
 
   useEffect(() => {
@@ -25,16 +26,47 @@ function CreateNews() {
       <section className="app-news-create-form-wrapper">
         {form !== 'submitted' ? (
           <section>
-            <h1>Edite seu Post</h1>
-            <form method="POST" onSubmit={submitForm}>
-              <label htmlFor="title">Título</label>
-              <input id="title" type="text" name="title" required />
-              <label htmlFor="content">Conteúdo</label>
-              <textarea id="content" name="content" rows="20" required />
-              <label htmlFor="category">Autor</label>
-              <input id="category" name="categoryName" type="text" required />
-              <button type="submit">Postar</button>
-            </form>
+            <h1>O que você está pensando no momento?</h1>
+            <div className="father">
+              <div className="form-test">
+                <form method="POST" id="post">
+                  <input
+                    type="text"
+                    name="title"
+                    id="title"
+                    placeholder="Título?"
+                    defaultValue=''
+                  />
+                  <textarea
+                    id="content"
+                    name="content"
+                    rows="20"
+                    required
+                    placeholder="Escreva aqui seus pensamentos..."
+                  />
+                  <div className="app-news-create-form-hashtags">
+                    #
+                    <input
+                      id="category"
+                      name="categoryName"
+                      type="text"
+                      required
+                      placeholder="Exemplo: Saúde, felicidade, tranquilidade, paz OU Saúde"
+                    />
+                  </div>
+                </form>
+              </div>
+              <section className="app-news-create-lastnews ">
+                <h2>Ferramentas de texto</h2>
+                <div>Em breve...</div>
+              </section>
+            </div>
+              <section className="publish-section">
+                <button type="button" className='publish-button' onClick={submitForm}>
+                  Publicar
+                </button>
+                <button type="button" className='cancel-button'>Cancelar</button>
+              </section>
           </section>
         ) : (
           <section className="sucess-send-post">
@@ -43,10 +75,6 @@ function CreateNews() {
             </div>
           </section>
         )}
-        <section className="app-news-create-lastnews ">
-          <h2>Meus Posts</h2>
-          <div>Em breve...</div>
-        </section>
       </section>
     </div>
   );
