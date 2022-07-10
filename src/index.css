@@ -2,7 +2,9 @@ html,
 #root,
 body {
   margin: 0;
-  height: 100%;
+  border: 0;
+  padding: 0;
+  height: 100vh;
   width: 100%;
   overflow-y: hidden;
 }
@@ -283,6 +285,7 @@ a {
   background: rgb(29 61 156 / 80%);
   color: white;
   font-weight: bolder;
+  cursor: pointer;
 }
 
 .cancel-button {
@@ -292,6 +295,7 @@ a {
   opacity: 0;
   background: #888;
   border: none;
+  cursor: pointer;
 }
 
 .footer-wrapper {
@@ -464,12 +468,14 @@ a {
 }
 
 @media only screen and (max-width: 760px) {
-
   .father {
     display: flex;
     align-items: flex-start;
     width: 100%;
     background: rgba(255, 255, 255, 1);
+    box-shadow: none;
+    border: none;
+    justify-content: center;
   }
 
   .nav-menu {
@@ -607,11 +613,6 @@ a {
     width: 100%;
     align-items: center;
     padding: 15px 0;
-  }
-
-  .father {
-    box-shadow: none;
-    border: none;
   }
 
   .publish-section {
