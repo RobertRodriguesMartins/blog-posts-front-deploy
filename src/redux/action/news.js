@@ -98,16 +98,11 @@ export const byIdThunk = (id) => async (dispatch) => {
   }
 };
 
-export const createThunk = (e) => async (dispatch) => {
-  e.preventDefault();
+export const createThunk = (myForm) => async (dispatch) => {
   try {
-    const form = new FormData(e.target);
+    const form = new FormData(myForm);
 
-    const requestBody = generateJsonFormData(form, [
-      'title',
-      'content',
-      'categoryName',
-    ]);
+    const requestBody = generateJsonFormData(form, ['content', 'categoryName', 'title']);
 
     await fetch(API_URL, {
       method: 'post',
