@@ -96,10 +96,10 @@ function App() {
       </header>
       <section className="app-news-section">
         <News />
+        <div>
+          black box
+        </div>
       </section>
-      <footer className="footer-wrapper">
-        <Footer />
-      </footer>
     </div>
   );
 }
