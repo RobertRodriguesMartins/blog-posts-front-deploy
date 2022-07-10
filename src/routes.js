@@ -8,11 +8,11 @@ function Router() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/news/create" element={<CreateNews />} />
-        <Route path="/news/:id" element={<NewsDetails />} />
+        <Route path="/posts/create" element={<CreateNews />} />
+        <Route path="/posts/:id" element={<NewsDetails />} />
         <Route
           path="*"
-          element={<h1>Rota inválida, recurso não enontrado :/</h1>}
+          element={<h1>Não encontrei nada por aqui :/</h1>}
         />
       </Routes>
     </BrowserRouter>
