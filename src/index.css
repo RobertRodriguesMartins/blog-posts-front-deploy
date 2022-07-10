@@ -599,10 +599,20 @@ a {
     box-shadow: 0 1px 2px rgb(12 12 12 / 23%), 0 2px 4px rgb(12 12 12 / 22%);
     opacity: 0;
     background-color: #888;
-    animation: fade 2s ease forwards;
+    animation: fade-mobile 2s ease forwards;
     margin-left: 0;
     width: 100%;
     height: 150px;
+  }
+
+  @keyframes fade-mobile {
+    from {
+      background-color: #888;
+    }
+    to {
+      opacity: 1;
+      background-color: #1a1919;
+    }
   }
 
   .app-news-card-article-wrapper article p {
@@ -644,7 +654,7 @@ a {
     z-index: 1;
     top: 0;
     left: 0;
-    background: #080707f7;
+    background: #070505f7;
     color: white;
     overflow-x: hidden;
     padding-top: 60px;
@@ -653,7 +663,7 @@ a {
   }
 
   .sidebar ul {
-    line-height: 4em;
+    line-height: 3.2em;
     list-style: none;
     padding: unset;
     width: 100%;
