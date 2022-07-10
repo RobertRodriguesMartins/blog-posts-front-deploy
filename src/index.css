@@ -328,6 +328,7 @@ a {
   height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .app-news-create-form-wrapper {
@@ -585,7 +586,10 @@ a {
   .app-news-create-form-wrapper {
     margin-top: 50px;
     display: flex;
-    height: 100%;
+    align-items: center;
+    width: 80%;
+    position: relative;
+    padding: 0 20px 20px 20px;
     flex-direction: column;
     height: 100%;
     overflow-y: overlay;
@@ -599,9 +603,9 @@ a {
   }
 
   .app-news-create-form-wrapper section {
-    margin-top: 10px;
     display: flex;
     flex-grow: 1;
+    position: absolute;
     flex-direction: column;
     align-items: center;
     width: 100%;
@@ -617,5 +621,18 @@ a {
 
   .publish-section {
     padding: 0;
+    position: initial !important;
+  }
+
+  .publish-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cancel-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
