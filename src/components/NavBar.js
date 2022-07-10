@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { BsSearch } from 'react-icons/bs';
 import { AiFillCloseSquare } from 'react-icons/ai';
 import { HiDotsVertical } from 'react-icons/hi';
 
@@ -48,23 +47,15 @@ function NavBar() {
       <section className="nav-tools">
         <ul>
           <Link to="/">
-            <li id="/">Home</li>
+            <li id="/">Posts</li>
           </Link>
-          <Link to="/news/create">
-            <li id="/news/create">Criar Post</li>
+          <Link to="/posts/create">
+            <li id="/posts/create">Criar Post</li>
           </Link>
           <li>Meus Posts</li>
+          <li>Favoritos</li>
+          <li>Sobre</li>
         </ul>
-        <section className="search">
-          <label htmlFor="search">
-            <BsSearch />
-          </label>
-          <input
-            id="search"
-            type="text"
-            placeholder="Buscar author, posts..."
-          ></input>
-        </section>
       </section>
       <section
         className="mobile-nav-menu"
