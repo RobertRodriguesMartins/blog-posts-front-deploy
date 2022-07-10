@@ -717,4 +717,8 @@ a {
     align-items: center;
     justify-content: center;
   }
+
+  .app-news-section-side {
+    display: none;
+  }
 }
