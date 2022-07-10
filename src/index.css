@@ -26,17 +26,17 @@ a {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #fff;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #121212;
 }
 
 /* Handle on hover */
@@ -65,6 +65,7 @@ a {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
+  background: #010101;
 }
 
 .app-news-card-wrapper {
@@ -102,12 +103,12 @@ a {
 .app-news-card-article-wrapper .content {
   white-space: pre-wrap;
   word-break: break-word;
-  font-family: Georgia, Times, "Times New Roman", serif;
-  font-size: 23px; 
+  font-family: Georgia, Times, 'Times New Roman', serif;
+  font-size: 23px;
   font-style: normal;
   font-variant: normal;
   font-weight: 700;
-  line-height: 34.5px
+  line-height: 34.5px;
 }
 
 .app-news-card-article-wrapper {
@@ -126,12 +127,10 @@ a {
   height: auto;
   margin: 3px;
   justify-content: flex-start;
-  color: rgba(2, 2, 2, 0.8);
-  border: 1px solid rgba(223, 223, 223, 1);
+  color: rgba(255, 255, 255, 1);
   border-radius: 4px;
-  box-shadow: 0 1px 2px rgb(50 50 50 / 10%), 0 2px 4px rgb(60 60 60 / 10%);
   opacity: 0;
-  background-color: #888;
+  background-color: #121212;
   animation: fade 2s ease forwards;
 }
 
@@ -152,12 +151,15 @@ a {
   justify-content: space-around;
   align-items: center;
   height: 60px;
+  background: #121212;
 }
 
 .nav-menu h2 {
   margin: 0;
   font-family: 'Source Serif Pro';
   font-weight: bolder;
+  color: white;
+  font-size: 30px;
 }
 
 .nav-menu ul {
@@ -166,6 +168,7 @@ a {
   list-style: none;
   line-height: 2.7em;
   margin: 0;
+  color: white;
 }
 
 .nav-menu ul li {
@@ -176,7 +179,7 @@ a {
 
 .nav-menu ul li:hover {
   transition: 0.2 ease;
-  background: rgba(254, 252, 253, 0.9);
+  background: rgb(0, 0, 0, 1);
   border-radius: 10px;
 }
 
@@ -437,7 +440,7 @@ a {
   }
   to {
     opacity: 1;
-    background-color: white;
+    background-color: #121212;
   }
 }
 
@@ -495,8 +498,13 @@ a {
   }
 
   .sidebar h2 {
-    font-family: arial;
-    margin: 0 25%;
+    text-align: center;
+    font-family: 'Georgia';
+    font-size: 32px;
+  }
+
+  .app-news-section {
+    margin-top: 50px;
   }
 
   .mobile-nav-menu {
@@ -506,6 +514,7 @@ a {
     width: 40px;
     height: 40px;
     margin: 0 50px 0 0;
+    color: white;
   }
 
   .mobile-nav-menu-opened {
@@ -584,11 +593,9 @@ a {
     flex-direction: column;
     align-items: flex-start;
     color: rgba(2, 2, 2, 0.8);
-    border: 1px solid rgba(223, 223, 223, 1);
-    border-radius: 4px;
     margin-top: 25px;
     padding: 10px;
-    box-shadow: 0 1px 2px rgb(50 50 50 / 10%), 0 2px 4px rgb(60 60 60 / 10%);
+    box-shadow: 0 1px 2px rgb(12 12 12 / 23%), 0 2px 4px rgb(12 12 12 / 22%);
     opacity: 0;
     background-color: #888;
     animation: fade 2s ease forwards;
@@ -614,6 +621,8 @@ a {
 
   .app-news-card-article-wrapper article a {
     width: 100%;
+    padding: 0;
+    color: white;
   }
 
   .app-news-card-wrapper {
@@ -634,7 +643,7 @@ a {
     z-index: 1;
     top: 0;
     left: 0;
-    background: #080707e6;
+    background: #080707f7;
     color: white;
     overflow-x: hidden;
     padding-top: 60px;
@@ -646,7 +655,8 @@ a {
     line-height: 4em;
     list-style: none;
     padding: unset;
-    width: 80%;
+    width: 100%;
+    font-size: 22px;
   }
 
   .search {
@@ -720,5 +730,17 @@ a {
 
   .app-news-section-side {
     display: none;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #020202;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #272626;
+  }
+
+  ::-webkit-scrollbar {
+    width: 1px;
   }
 }
