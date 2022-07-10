@@ -96,7 +96,7 @@ function App() {
       </header>
       <section className="app-news-section">
         <News />
-        <div>
+        <div className='app-news-section-side'>
           black box
         </div>
       </section>
