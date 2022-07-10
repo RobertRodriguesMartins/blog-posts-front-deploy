@@ -15,13 +15,13 @@ function News() {
         <section className="app-news-card-section">
           <section className="app-news-card-article-wrapper">
             {allNews && allNews.length > 0 ? (
-              allNews.map((notice) => {
+              allNews.map((post) => {
                 return (
-                  <NewsCard news={notice} key={notice.id + Math.random()} />
+                  <NewsCard news={post} key={post.id + Math.random()} />
                 );
               })
             ) : (
-              <h2>Não consegui carregar os posts... :0</h2>
+              <h2>carregando os posts... :0</h2>
             )}
           </section>
         </section>
