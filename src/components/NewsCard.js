@@ -13,7 +13,7 @@ function NewsCard(props) {
     }
   }
 
-  const notice = props.news;
+  const post = props.news;
   useEffect(() => {
     document
       .getElementsByClassName('touch')[0]
@@ -21,11 +21,11 @@ function NewsCard(props) {
   }, []);
   return (
     <article className="touch">
-      <Link to={`/news/${notice.id}`}>
-        <h1>{notice.title}</h1>
-        <p>{notice.content}</p>
+      <Link to={`/posts/${post.id}`}>
+        <h1>{post.title}</h1>
+        <p>{post.content}</p>
         <span>
-          ~<em>{notice.categoryName}</em>
+          <em>{post.categoryName}</em>
         </span>
       </Link>
     </article>
