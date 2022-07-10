@@ -23,10 +23,13 @@ function NewsCard(props) {
     <article className="touch">
       <Link to={`/posts/${post.id}`}>
         <h1>{post.title}</h1>
-        <p>{post.content}</p>
-        <span>
+        <span className='content'>{post.content}</span>
+        <div>
           <em>{post.categoryName}</em>
-        </span>
+        </div>
+        <div>
+          likes
+        </div>
       </Link>
     </article>
   );
