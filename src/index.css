@@ -6,7 +6,6 @@ body {
   padding: 0;
   height: 100%;
   width: 100%;
-  overflow-y: hidden;
 }
 
 body {
@@ -59,7 +58,7 @@ a {
   margin: 0;
   height: 100%;
   width: 100%;
-  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .nav-menu {
@@ -125,8 +124,8 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
-  overflow-y: overlay;
+  width: 100%;
+  overflow: auto;
 }
 
 .app-news-details-wrapper {
@@ -179,7 +178,6 @@ a {
   height: 100%;
   display: flex;
   margin: 0 50px;
-  position: relative;
 }
 
 .app-news-card-section {
@@ -226,11 +224,8 @@ a {
   width: 100%;
   justify-content: space-evenly;
   flex-grow: 1;
-  position: absolute;
-  top: 0;
-  overflow-x: hidden;
   z-index: 0;
-  left: 0;
+  overflow: inherit;
 }
 
 .app-news-card-article-wrapper em {
@@ -240,7 +235,15 @@ a {
 }
 
 .app-news-card-article-wrapper article {
-  overflow-y: overlay;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: rgba(2, 2, 2, 0.8);
+  border: 1px solid rgba(223, 223, 223, 1);
+  border-radius: 4px;
+  margin-top: 25px;
+  padding: 10px;
+  box-shadow: 0 1px 2px rgb(50 50 50 / 10%), 0 2px 4px rgb(60 60 60 / 10%);
   opacity: 0;
   background-color: #888;
   animation: fade 2s ease forwards;
@@ -257,6 +260,10 @@ a {
   font-size: 25px;
   text-align: center;
   margin: 20px 0;
+}
+
+.app-news-card-article-wrapper article a {
+  width: 100%;
 }
 
 .app-header {
@@ -301,19 +308,21 @@ a {
 .footer-wrapper {
   background: grey;
   justify-content: center;
-  align-items: center;
   display: flex;
-  height: 35px;
   width: 100%;
-  transform: translateY(5px);
+  margin-top: 20px;
 }
 
 .footer-wrapper a {
   margin: 0px 5px;
 }
 
+.footer-wrapper p {
+  margin: 0;
+}
+
 .footer-wrapper svg {
-  height: 3em;
+  height: 2em;
   width: 3em;
 }
 
@@ -529,7 +538,7 @@ a {
 
   .app-news-card-article-wrapper article {
     margin-left: 0;
-    width: 80%;
+    width: 100%;
     height: 150px;
   }
 
