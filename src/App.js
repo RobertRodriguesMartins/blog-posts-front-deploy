@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { API_URL } from './api';
 import NavBar from './components/';
-import { News, Footer } from './components/';
+import { News } from './components/';
 import {
   maxOffsetThunk,
   someThunk,
