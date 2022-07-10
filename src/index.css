@@ -14,6 +14,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h2 {
+  font-family: 'Source Serif Pro';
+  font-weight: bolder;
+  font-size: 18px;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -59,6 +65,86 @@ a {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
+}
+
+.app-news-card-wrapper {
+  width: 70%;
+  height: 100%;
+}
+
+.app-news-card-article-wrapper article a {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-news-card-article-wrapper article h1 {
+  display: flex;
+  font-size: 22px;
+  margin: 0;
+  justify-content: center;
+  font-family: 'Source Serif Pro';
+}
+
+.app-news-card-article-wrapper article a p {
+  display: flex;
+  flex-grow: 1;
+  word-break: break-all;
+  height: min-content;
+  max-height: 200px;
+  text-overflow: ellipsis;
+  font-size: 16px;
+  font-family: 'Roboto Mono';
+  overflow: hidden;
+}
+
+.app-news-card-article-wrapper .content {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-size: 23px; 
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 34.5px
+}
+
+.app-news-card-article-wrapper {
+  display: flex;
+  align-items: center;
+  overflow-y: inherit;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.app-news-card-article-wrapper article {
+  width: 31%;
+  display: flex;
+  min-height: 250px;
+  height: auto;
+  margin: 3px;
+  justify-content: flex-start;
+  color: rgba(2, 2, 2, 0.8);
+  border: 1px solid rgba(223, 223, 223, 1);
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgb(50 50 50 / 10%), 0 2px 4px rgb(60 60 60 / 10%);
+  opacity: 0;
+  background-color: #888;
+  animation: fade 2s ease forwards;
+}
+
+.app-news-card-article-wrapper em {
+  background: #9999;
+  border-radius: 3px;
+  font-size: 12px;
+  padding: 2px;
+  font-family: 'Roboto Mono';
+}
+
+.app-news-card-article-wrapper em:hover {
+  font-size: 24px;
 }
 
 .nav-menu {
@@ -122,10 +208,10 @@ a {
 
 .app-news-section {
   display: flex;
-  flex-direction: column;
   align-items: center;
   width: 100%;
   overflow: auto;
+  margin-top: 70px;
 }
 
 .app-news-details-wrapper {
@@ -171,99 +257,6 @@ a {
   word-break: break-word;
   flex-grow: 1;
   text-indent: 25px;
-}
-
-.app-news-card-wrapper {
-  width: 80%;
-  height: 100%;
-  display: flex;
-  margin: 0 50px;
-}
-
-.app-news-card-section {
-  display: flex;
-  width: 100%;
-}
-
-.app-news-card-section a {
-  height: 100%;
-  width: 100%;
-  text-align: start;
-}
-
-.app-news-card-section p {
-  text-align: start;
-  overflow: overlay;
-  border-radius: 5px;
-}
-
-.app-news-card-section article {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: rgba(2, 2, 2, 0.8);
-  border: 1px solid rgba(223, 223, 223, 1);
-  background: rgba(255, 255, 255, 1);
-  border-radius: 4px;
-  margin-left: 25px;
-  margin-top: 25px;
-  padding: 10px;
-  height: 30%;
-  width: 60%;
-  box-shadow: 0 1px 2px rgba(50, 50, 50, 0.1), 0 2px 4px rgba(60, 60, 60, 0.1);
-}
-
-.app-news-card-section article:hover {
-  transition: 0.2s ease;
-  font-size: 18px;
-}
-
-.app-news-card-article-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  justify-content: space-evenly;
-  flex-grow: 1;
-  z-index: 0;
-  overflow: inherit;
-}
-
-.app-news-card-article-wrapper em {
-  background: #9999;
-  border-radius: 3px;
-  padding: 3px;
-}
-
-.app-news-card-article-wrapper article {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  color: rgba(2, 2, 2, 0.8);
-  border: 1px solid rgba(223, 223, 223, 1);
-  border-radius: 4px;
-  margin-top: 25px;
-  padding: 10px;
-  box-shadow: 0 1px 2px rgb(50 50 50 / 10%), 0 2px 4px rgb(60 60 60 / 10%);
-  opacity: 0;
-  background-color: #888;
-  animation: fade 2s ease forwards;
-}
-
-.app-news-card-article-wrapper article p {
-  word-break: break-all;
-  font-size: 25px;
-  width: 100%;
-  font-family: 'Roboto Mono';
-}
-
-.app-news-card-article-wrapper article h1 {
-  font-size: 25px;
-  text-align: center;
-  margin: 20px 0;
-}
-
-.app-news-card-article-wrapper article a {
-  width: 100%;
 }
 
 .app-header {
@@ -532,21 +525,102 @@ a {
   }
 
   .app-news-card-wrapper {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    margin: 0 50px;
+  }
+
+  .app-news-card-section {
+    display: flex;
     width: 100%;
-    margin: 0;
+  }
+
+  .app-news-card-section a {
+    height: 100%;
+    width: 100%;
+    text-align: start;
+  }
+
+  .app-news-card-section p {
+    text-align: start;
+    overflow: overlay;
+    border-radius: 5px;
+  }
+
+  .app-news-card-section article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgba(2, 2, 2, 0.8);
+    border: 1px solid rgba(223, 223, 223, 1);
+    background: rgba(255, 255, 255, 1);
+    border-radius: 4px;
+    margin-left: 25px;
+    margin-top: 25px;
+    padding: 10px;
+    height: 30%;
+    width: 60%;
+    box-shadow: 0 1px 2px rgba(50, 50, 50, 0.1), 0 2px 4px rgba(60, 60, 60, 0.1);
+  }
+
+  .app-news-card-section article:hover {
+    transition: 0.2s ease;
+    font-size: 18px;
+  }
+
+  .app-news-card-article-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    z-index: 0;
+    overflow: inherit;
   }
 
   .app-news-card-article-wrapper article {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: rgba(2, 2, 2, 0.8);
+    border: 1px solid rgba(223, 223, 223, 1);
+    border-radius: 4px;
+    margin-top: 25px;
+    padding: 10px;
+    box-shadow: 0 1px 2px rgb(50 50 50 / 10%), 0 2px 4px rgb(60 60 60 / 10%);
+    opacity: 0;
+    background-color: #888;
+    animation: fade 2s ease forwards;
     margin-left: 0;
     width: 100%;
     height: 150px;
   }
 
   .app-news-card-article-wrapper article p {
-    animation: none;
+    word-break: break-all;
+    font-size: 25px;
+    width: 100%;
+    font-family: 'Roboto Mono';
     height: 35%;
     display: flex;
   }
+
+  .app-news-card-article-wrapper article h1 {
+    font-size: 25px;
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  .app-news-card-article-wrapper article a {
+    width: 100%;
+  }
+
+  .app-news-card-wrapper {
+    width: 100%;
+    margin: 0;
+  }
+
   .app-news-card-article-wrapper article h1,
   .app-news-card-article-wrapper article p,
   .app-news-card-article-wrapper article span {
