@@ -109,7 +109,6 @@ a {
   font-style: normal;
   font-variant: normal;
   font-weight: 700;
-  line-height: 34.5px;
 }
 
 .app-news-card-article-wrapper {
@@ -602,7 +601,7 @@ a {
     animation: fade-mobile 2s ease forwards;
     margin-left: 0;
     width: 100%;
-    height: 150px;
+    height: auto;
   }
 
   @keyframes fade-mobile {
