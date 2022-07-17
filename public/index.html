@@ -20,9 +20,12 @@
       href="%PUBLIC_URL%/favicon-16x16.png"
     />
     <link rel="manifest" href="%PUBLIC_URL%/site.json" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Source+Serif+Pro&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Source+Serif+Pro&display=swap"
+      rel="stylesheet"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Robert Rodrigues Martins" />
     <meta name="theme-color" content="#000000" />
@@ -55,5 +58,14 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+      window.addEventListener('load', function () {
+        // Set a timeout...
+        setTimeout(function () {
+          // Hide the address bar!
+          window.scrollTo(0, 1);
+        }, 0);
+      });
+    </script>
   </body>
 </html>
