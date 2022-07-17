@@ -4,7 +4,6 @@ body {
   margin: 0;
   border: 0;
   padding: 0;
-  height: 100%;
   width: 100%;
 }
 
@@ -32,17 +31,17 @@ a {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #fff;
+  background: #010101
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #121212;
+  background: #555
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #8b7e7e;
 }
 
 .form-test {
@@ -58,20 +57,20 @@ a {
   display: none;
 }
 
-.app {
+#root {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   margin: 0;
-  height: 100%;
+  background: #010101;
   width: 100%;
   overflow-x: hidden;
-  background: #010101;
+  height: 100vh;
+  overflow-y: scroll;
 }
 
 .app-news-card-wrapper {
   width: 70%;
-  height: 100%;
 }
 
 .app-news-card-article-wrapper article a {
@@ -114,7 +113,6 @@ a {
 .app-news-card-article-wrapper {
   display: flex;
   align-items: center;
-  overflow-y: inherit;
   width: 100%;
   justify-content: center;
   flex-wrap: wrap;
@@ -213,14 +211,12 @@ a {
   display: flex;
   align-items: center;
   width: 100%;
-  overflow: auto;
   margin-top: 70px;
 }
 
 .app-news-details-wrapper {
   display: flex;
   justify-content: center;
-  height: 100%;
   align-items: center;
   margin-top: 20px;
 }
@@ -264,11 +260,7 @@ a {
 
 .app-header {
   background: rgba(223, 223, 223, 1);
-  position: fixed;
   width: 100%;
-  left: 0;
-  top: 0;
-  z-index: 1;
 }
 
 .father {
@@ -740,14 +732,6 @@ a {
 
   .app-news-section-side {
     display: none;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: #020202;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: #272626;
   }
 
   ::-webkit-scrollbar {
