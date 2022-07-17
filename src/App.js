@@ -32,7 +32,7 @@ function App() {
   function checkIfExists(e, actualOffset, maxOffset) {
     const scrollSection = e.target;
     const { scrollHeight, scrollTop, clientHeight } = scrollSection;
-    if (clientHeight + scrollTop >= scrollHeight - 100) {
+    if (clientHeight + scrollTop >= scrollHeight - 170) {
       if (actualOffset <= maxOffset * 6) {
         setLoading(true);
       }
