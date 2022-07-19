@@ -30,8 +30,7 @@ function App() {
   }
 
   function checkIfExists(e, actualOffset, maxOffset) {
-    const scrollSection = e.target;
-    const { scrollHeight, scrollTop, clientHeight } = scrollSection;
+    const { scrollHeight, scrollTop, clientHeight } = document.documentElement;
     if (clientHeight + scrollTop >= scrollHeight) {
       if (actualOffset <= maxOffset * 6) {
         setLoading(true);
@@ -49,13 +48,11 @@ function App() {
   }, [loading]);
 
   useEffect(() => {
-    const scrollSection =
-      document.getElementsByClassName('app-news-section')[0];
-    scrollSection.addEventListener('scroll', (e) =>
+    window.addEventListener('scroll', (e) =>
       checkIfExists(e, actualOffset, maxOffset)
     );
 
-    return scrollSection.removeEventListener('scroll', (e) =>
+    return window.removeEventListener('scroll', (e) =>
       checkIfExists(e, actualOffset, maxOffset)
     );
   }, []);
