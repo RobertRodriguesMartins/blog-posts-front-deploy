@@ -36,15 +36,17 @@ function CreateNews() {
                     id="title"
                     placeholder="Título?"
                     defaultValue=''
+                    className='no-bg'
                   />
                   <textarea
                     id="content"
                     name="content"
-                    rows="20"
+                    rows="10"
                     required
                     placeholder="Escreva aqui seus pensamentos..."
+                    className='no-bg'
                   />
-                  <div className="app-news-create-form-hashtags">
+                  <div className="app-news-create-form-hashtags no-bg">
                     #
                     <input
                       id="category"
@@ -52,6 +54,7 @@ function CreateNews() {
                       type="text"
                       required
                       placeholder="Exemplo: Saúde, felicidade, tranquilidade, paz OU Saúde"
+                      className='no-bg'
                     />
                   </div>
                 </form>
