@@ -1,9 +1,10 @@
-html,
-#root,
-body {
+html {
+  height: 0;
   margin: 0;
   border: 0;
   padding: 0;
+}
+body {
   width: 100%;
 }
 
@@ -11,19 +12,21 @@ body {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  color: #fff;
 }
 
 body {
   font-family: -apple-system, 'Roboto';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #010101;
 }
 
 h2 {
   font-family: 'Source Serif Pro';
   font-weight: bolder;
   font-size: 18px;
-  color: white;
+  color: #fff;
 }
 
 a {
@@ -43,13 +46,20 @@ a {
   background: #555;
 }
 
+#root {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  width: 100%;
+}
+
 .form-test {
   margin: 10px;
   display: flex;
   width: 90%;
   box-shadow: 0 1px 2px rgb(50 50 50 / 10%), 0 2px 4px rgb(60 60 60 / 10%);
-  border: 1px solid rgba(223, 223, 223, 1);
-  background: rgba(255, 255, 255, 1);
+  border: 1px solid #2f2b2b5c;
+  background: none;
 }
 
 .mobile-nav-menu {
@@ -61,10 +71,14 @@ a {
   flex-direction: column;
   flex-grow: 1;
   margin: 0;
-  height: 100%;
   width: 100%;
   overflow-x: hidden;
   background: #010101;
+}
+
+.no-bg {
+  background: none !important;
+  color: rgba(222, 222, 222, 1);
 }
 
 .app-news-card-wrapper {
@@ -72,7 +86,7 @@ a {
   height: 100%;
 }
 
-.app-news-card-article-wrapper article a {
+.app-news-card-article-wrapper .touch {
   width: 100%;
   padding: 10px;
   display: flex;
@@ -87,7 +101,7 @@ a {
   font-family: 'Source Serif Pro';
 }
 
-.app-news-card-article-wrapper article a p {
+.app-news-card-article-wrapper article p {
   display: flex;
   flex-grow: 1;
   word-break: break-all;
@@ -105,9 +119,11 @@ a {
   font-family: Georgia, Times, 'Times New Roman', serif;
   font-size: 23px;
   font-style: normal;
+  font-feature-settings: normal;
   font-variant: normal;
   font-weight: 700;
-  line-height: 34.5px;
+  padding: 5% 0;
+  line-height: 25.5px;
 }
 
 .app-news-card-article-wrapper {
@@ -128,7 +144,7 @@ a {
   justify-content: flex-start;
   color: rgba(255, 255, 255, 1);
   border-radius: 4px;
-  opacity: 0;
+  opacity: 0.2;
   background-color: #121212;
   animation: fade 2s ease forwards;
 }
@@ -233,7 +249,7 @@ a {
   display: flex;
   justify-content: center;
   background: #888;
-  opacity: 0;
+  opacity: 0.2;
   border-radius: 5px;
   font-family: arial;
   animation: fade 3s ease forwards;
@@ -286,6 +302,7 @@ a {
   background: rgb(29 61 156 / 80%);
   color: white;
   font-weight: bolder;
+  float: left;
   cursor: pointer;
 }
 
@@ -337,15 +354,14 @@ a {
 .app-news-create-form-wrapper {
   margin-top: 70px;
   display: flex;
-  height: 100%;
   width: 100%;
 }
 
 .app-news-create-form-wrapper h1 {
-  font-size: 20px;
+  font-size: 100%;
   font-family: 'Source Serif Pro';
-  margin: 0 !important;
-  flex-basis: 30px !important;
+  display: block;
+  margin: 10px 10%;
 }
 
 .app-news-create-form-wrapper form {
@@ -353,6 +369,8 @@ a {
   flex-direction: column;
   width: 100%;
   align-items: center;
+  padding: 15px 0;
+  background: #2f2b2b5c;
 }
 
 .app-news-create-form-wrapper input {
@@ -365,18 +383,19 @@ a {
 
 .app-news-create-form-hashtags {
   width: 100%;
-  border-top: 1px solid black;
-  background: white;
+  border-top: 1px solid #2f2b2b5c;
   align-items: center;
   display: flex;
   justify-content: center;
 }
 
 .app-news-create-form-wrapper button {
-  width: 30%;
   padding: 10px;
   border-radius: 4px;
   font-size: 20px;
+  margin: 0 0;
+  display: block;
+  width: calc(30% + 10px);
 }
 
 .app-news-create-form-wrapper textarea {
@@ -384,7 +403,7 @@ a {
   outline: none;
   padding-top: 10px;
   border: none;
-  border-top: 1px solid black;
+  border-top: 1px solid #2f2b2b5c;
   text-indent: 20px;
   font-family: 'Roboto Mono';
 }
@@ -409,24 +428,37 @@ a {
 .text-reveal {
   position: relative;
   overflow: hidden;
+  margin: 40% 10%;
 }
 
 .text-reveal h2 {
-  animation: fade 1s ease alternate infinite;
+  animation: fade-no-bg 1s ease alternate infinite;
   opacity: 0;
   font-size: 30px;
 }
 
+.touch div:nth-of-type(1) {
+  padding: 4% 0;
+}
+
+.touch div:nth-of-type(2) {
+  place-self: flex-end;
+}
+
 .publish-section {
-  display: flex !important;
-  justify-content: space-between !important;
-  flex-direction: row !important;
-  padding: 10px 0;
-  width: 90% !important;
-  flex-grow: 0 !important;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto !important;
+  display: block;
 }
 
 @keyframes fade-button {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-no-bg {
   to {
     opacity: 1;
   }
@@ -472,27 +504,54 @@ a {
 }
 
 @media only screen and (max-width: 760px) {
+  body {
+    margin: auto 0;
+    float: left;
+    background: #010101;
+  }
+
+  .app-header {
+    width: 100%;
+    float: left;
+    margin: auto;
+  }
+
+  #root {
+    float: left;
+  }
+
+  .app-news-card-wrapper {
+    float: left;
+    width: 100%;
+    margin: auto;
+  }
+
   .father {
     display: flex;
     align-items: flex-start;
     width: 100%;
-    background: rgba(255, 255, 255, 1);
+    background: none;
     box-shadow: none;
     border: none;
     justify-content: center;
+    margin: auto;
   }
 
   .nav-menu {
     justify-content: space-between;
+    display: flex;
+    align-items: center;
     height: 50px;
+    background: #121212;
+    z-index: 1;
+    width: 100%;
+  }
+  .nav-menu a {
+    margin: 0 0 0 50px;
   }
 
   .nav-tools {
     display: none;
-  }
-
-  .nav-menu h2 {
-    margin: 0 0 0 50px;
   }
 
   .sidebar h2 {
@@ -502,7 +561,8 @@ a {
   }
 
   .app-news-section {
-    margin-top: 50px;
+    float: left;
+    margin: 10% 0;
   }
 
   .mobile-nav-menu {
@@ -590,11 +650,11 @@ a {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    color: rgba(2, 2, 2, 0.8);
+    color: white;
     margin-top: 25px;
     padding: 10px;
     box-shadow: 0 1px 2px rgb(12 12 12 / 23%), 0 2px 4px rgb(12 12 12 / 22%);
-    opacity: 0;
+    opacity: 0.2;
     background-color: #888;
     animation: fade-mobile 2s ease forwards;
     margin-left: 0;
@@ -624,13 +684,7 @@ a {
   .app-news-card-article-wrapper article h1 {
     font-size: 25px;
     text-align: center;
-    margin: 20px 0;
-  }
-
-  .app-news-card-article-wrapper article a {
-    width: 100%;
-    padding: 0;
-    color: white;
+    margin: 0;
   }
 
   .app-news-card-wrapper {
@@ -685,14 +739,11 @@ a {
   }
 
   .app-news-create-form-wrapper {
-    margin-top: 50px;
-    display: flex;
-    align-items: center;
-    width: 80%;
+    width: 100%;
+    margin: 0 !important;
     position: relative;
-    padding: 0 20px 20px 20px;
-    flex-direction: column;
-    height: 80%;
+    align-items: center;
+    float: left;
   }
 
   .app-news-create-form-wrapper section:nth-child(1) {
@@ -703,36 +754,15 @@ a {
   }
 
   .app-news-create-form-wrapper section {
-    display: flex;
-    flex-grow: 1;
-    position: absolute;
-    flex-direction: column;
     align-items: center;
-    width: 100%;
-  }
-
-  .app-news-create-form-wrapper form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    padding: 15px 0;
-  }
-
-  .publish-section {
-    padding: 0;
-    position: initial !important;
-  }
-
-  .publish-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 80%;
+    margin: calc(10% + 50px) auto;
+    display: block;
   }
 
   .cancel-button {
-    display: flex;
     align-items: center;
+    float: right;
     justify-content: center;
   }
 
