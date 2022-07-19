@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 function NewsCard(props) {
@@ -21,16 +20,12 @@ function NewsCard(props) {
   }, []);
   return (
     <article className="touch">
-      <Link to={`/posts/${post.id}`}>
-        <h1>{post.title}</h1>
-        <span className='content'>{post.content}</span>
-        <div>
-          <em>{post.categoryName}</em>
-        </div>
-        <div>
-          likes
-        </div>
-      </Link>
+      <h1>{post.title}</h1>
+      <span className="content">{post.content}</span>
+      <div>
+        <em>{post.categoryName}</em>
+      </div>
+      <div>likes</div>
     </article>
   );
 }
