@@ -1,7 +1,6 @@
 import { API_URL } from '../../api';
 import generateJsonFormData from '../utils/convertFormToJson';
-
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZGlzcGxheU5hbWUiOiJMZXdpcyBIYW1pbHRvbiIsImVtYWlsIjoibGV3aXNoYW1pbHRvbkBnbWFpbC5jb20iLCJpYXQiOjE2NTgzMjg2NTJ9.no20f_C6IA3S8TLM12Wnn-8IbWBJUZsNGDRJSgHpMbw'
+import getToken from '../utils/getToken';
 
 export const all = (payload) => {
   return {
@@ -58,6 +57,13 @@ export const setForm = (payload) => {
   };
 };
 
+export const token = (payload) => {
+  return {
+    type: 'auth/token',
+    payload: payload,
+  };
+};
+
 export const maxOffsetThunk = () => async (dispatch) => {
   try {
     const rawData = await fetch(API_URL + 'post/offset', {
@@ -79,12 +85,34 @@ export const someThunk = (offset) => async (dispatch) => {
     });
 
     const response = await rawData.json();
-    if(response.length > 0) {
-       return dispatch(all(response));
+    if (response.length > 0) {
+      return dispatch(all(response));
     }
     dispatch(all([0]));
   } catch (e) {
     dispatch(all([0]));
+  }
+};
+
+export const createUserThunk = (form) => async (dispatch) => {
+  try {
+    const requestBody = generateJsonFormData(form, [
+      'displayName',
+      'email',
+      'password',
+    ]);
+    const rawData = await fetch(API_URL + `user`, {
+      method: 'POST',
+      body: requestBody,
+    });
+    const { token } = await rawData.json();
+    if (token) {
+      localStorage.setItem('token', token);
+      dispatch(token(true));
+      return;
+    }
+  } catch (e) {
+    dispatch(token(false));
   }
 };
 
@@ -104,6 +132,7 @@ export const byIdThunk = (id) => async (dispatch) => {
 
 export const createThunk = (myForm) => async (dispatch) => {
   try {
+    const token = await getToken();
     const form = new FormData(myForm);
 
     const requestBody = generateJsonFormData(form, [
@@ -112,8 +141,7 @@ export const createThunk = (myForm) => async (dispatch) => {
       'title',
     ]);
     const headers = new Headers();
-    headers.set(
-      'authorization', token);
+    headers.set('authorization', token);
     headers.set('Content-type', 'application/json');
     await fetch(API_URL + 'post/', {
       method: 'post',
@@ -123,7 +151,6 @@ export const createThunk = (myForm) => async (dispatch) => {
     });
     dispatch(create());
   } catch (e) {
-    console.log(e);
     dispatch(create(e));
   }
 };
