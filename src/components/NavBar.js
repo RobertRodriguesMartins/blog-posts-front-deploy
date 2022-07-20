@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AiFillCloseSquare } from 'react-icons/ai';
 import { HiDotsVertical } from 'react-icons/hi';
+import { TbUserCircle } from 'react-icons/tb';
 
 function NavBar() {
   const { pathname } = useLocation();
 
   const [isNavOpened, setIsNavOpened] = useState(false);
+  const [isLogged, setIsLogged] = useState(false);
 
   function openNav() {
     document.getElementsByTagName('nav')[0].setAttribute('class', 'sidebar');
@@ -41,19 +43,31 @@ function NavBar() {
   }, [pathname]);
   return (
     <nav className="nav-menu">
-      <Link to="/">
+      <section className="nav-user-mobile">
+        {isNavOpened && isLogged && <TbUserCircle />}
+      </section>
+      <Link to="/" className='nav-title'>
         <h2>Blog Posts</h2>
       </Link>
       <section className="nav-tools">
         <ul>
           <Link to="/">
-            <li id="/">Posts</li>
+            <li id="/">Feed</li>
           </Link>
-          <Link to="/posts/create">
-            <li id="/posts/create">Criar Post</li>
-          </Link>
-          <li>Meus Posts</li>
-          <li>Favoritos</li>
+          {isLogged ? (
+            <>
+              <Link to="/posts/create">
+                <li id="/posts/create">Criar Post</li>
+              </Link>
+              <li>Meus Posts</li>
+              <li>Favoritos</li>
+            </>
+          ) : (
+            <>
+              <li>Fazer Login</li>
+              <li>Criar Perfil</li>
+            </>
+          )}
           <li>Sobre</li>
         </ul>
       </section>
