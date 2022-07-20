@@ -4,9 +4,6 @@ html {
   border: 0;
   padding: 0;
 }
-body {
-  width: 100%;
-}
 
 * {
   -webkit-box-sizing: border-box;
@@ -20,6 +17,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #010101;
+  width: 100%;
+  margin: 0;
 }
 
 h2 {
@@ -205,6 +204,13 @@ a {
 .nav-tools {
   display: flex;
   align-items: center;
+  margin: 0 5%;
+}
+
+.nav-title {
+  display: flex;
+  flex-grow: 1;
+  margin: 0 5%;
 }
 
 .search {
@@ -559,6 +565,24 @@ a {
 
   .nav-tools {
     display: none;
+  }
+
+  .nav-title {
+    display: block;
+    flex-grow: 0;
+  }
+
+  .nav-user-mobile {
+    display: unset;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 4%;
+  }
+
+  .nav-user-mobile svg {
+    height: 2em;
+    width: 2em;
   }
 
   .sidebar h2 {
