@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AiFillCloseSquare } from 'react-icons/ai';
 import { HiDotsVertical } from 'react-icons/hi';
-import { TbUserCircle } from 'react-icons/tb';
 
 function NavBar() {
   const { pathname } = useLocation();
@@ -44,7 +43,7 @@ function NavBar() {
   return (
     <nav className="nav-menu">
       <section className="nav-user-mobile">
-        {isNavOpened && isLogged && <TbUserCircle />}
+        {isNavOpened && isLogged && <span>icon</span>}
       </section>
       <Link to="/" className='nav-title'>
         <h2>Blog Posts</h2>
