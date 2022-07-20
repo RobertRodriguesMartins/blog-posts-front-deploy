@@ -79,8 +79,10 @@ export const someThunk = (offset) => async (dispatch) => {
     });
 
     const response = await rawData.json();
-
-    dispatch(all(response));
+    if(response.length > 0) {
+       return dispatch(all(response));
+    }
+    dispatch(all([0]));
   } catch (e) {
     dispatch(all([0]));
   }
