@@ -50,7 +50,7 @@ function CreateNews() {
                     #
                     <input
                       id="category"
-                      name="categoryName"
+                      name="categories"
                       type="text"
                       required
                       placeholder="Exemplo: Saúde, felicidade, tranquilidade, paz OU Saúde"
