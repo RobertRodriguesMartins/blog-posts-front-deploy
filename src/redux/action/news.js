@@ -1,6 +1,8 @@
 import { API_URL } from '../../api';
 import generateJsonFormData from '../utils/convertFormToJson';
 
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZGlzcGxheU5hbWUiOiJMZXdpcyBIYW1pbHRvbiIsImVtYWlsIjoibGV3aXNoYW1pbHRvbkBnbWFpbC5jb20iLCJpYXQiOjE2NTgzMjg2NTJ9.no20f_C6IA3S8TLM12Wnn-8IbWBJUZsNGDRJSgHpMbw'
+
 export const all = (payload) => {
   return {
     type: 'news/all',
@@ -58,7 +60,7 @@ export const setForm = (payload) => {
 
 export const maxOffsetThunk = () => async (dispatch) => {
   try {
-    const rawData = await fetch(API_URL + 'offset', {
+    const rawData = await fetch(API_URL + 'post/offset', {
       method: 'GET',
     });
 
@@ -66,13 +68,13 @@ export const maxOffsetThunk = () => async (dispatch) => {
 
     dispatch(maxOffset(response));
   } catch (e) {
-    console.log(e);
+    dispatch(maxOffset(0));
   }
 };
 
 export const someThunk = (offset) => async (dispatch) => {
   try {
-    const rawData = await fetch(API_URL + `some?q=${offset}`, {
+    const rawData = await fetch(API_URL + `post/some?q=${offset}`, {
       method: 'GET',
     });
 
@@ -80,7 +82,7 @@ export const someThunk = (offset) => async (dispatch) => {
 
     dispatch(all(response));
   } catch (e) {
-    console.log(e);
+    dispatch(all([0]));
   }
 };
 
@@ -102,19 +104,24 @@ export const createThunk = (myForm) => async (dispatch) => {
   try {
     const form = new FormData(myForm);
 
-    const requestBody = generateJsonFormData(form, ['content', 'categoryName', 'title']);
-
-    await fetch(API_URL, {
+    const requestBody = generateJsonFormData(form, [
+      'content',
+      'categories',
+      'title',
+    ]);
+    const headers = new Headers();
+    headers.set(
+      'authorization', token);
+    headers.set('Content-type', 'application/json');
+    await fetch(API_URL + 'post/', {
       method: 'post',
       body: requestBody,
-      headers: {
-        'Content-type': 'application/json',
-      },
+      headers,
       mode: 'cors',
     });
-
     dispatch(create());
   } catch (e) {
+    console.log(e);
     dispatch(create(e));
   }
 };
