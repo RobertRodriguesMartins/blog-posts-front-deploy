@@ -23,7 +23,7 @@ function NewsCard(props) {
       <h1>{post.title}</h1>
       <span className="content">{post.content}</span>
       <div>
-        <em>{post.categoryName}</em>
+        <em>{post.categories[0] ? post.categories[0].name : ''}</em>
       </div>
       <div>likes</div>
     </article>
@@ -31,7 +31,10 @@ function NewsCard(props) {
 }
 
 NewsCard.propTypes = {
-  news: PropTypes.object,
+  news: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number
+  ]),
 };
 
 export default NewsCard;
