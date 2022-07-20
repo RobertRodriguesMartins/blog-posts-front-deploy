@@ -437,6 +437,13 @@ a {
   font-size: 30px;
 }
 
+.post-loading {
+  animation: fade-no-bg 1s ease alternate infinite;
+  opacity: 0;
+  font-size: 100%;
+  margin: 10% auto;
+}
+
 .touch div:nth-of-type(1) {
   padding: 4% 0;
 }
@@ -562,7 +569,7 @@ a {
 
   .app-news-section {
     float: left;
-    margin: 10% 0;
+    margin: 30% 0;
   }
 
   .mobile-nav-menu {
