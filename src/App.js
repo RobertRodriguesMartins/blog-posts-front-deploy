@@ -22,10 +22,10 @@ function App() {
   const actualReduxMaxOffset = useSelector((state) => state.news.maxOffset);
 
   async function getMaxPosts() {
-    const rawData = await fetch(API_URL, {
+    const rawData = await fetch(API_URL + 'post/count', {
       method: 'GET',
     });
-    const { total } = await rawData.json();
+    const total = await rawData.json();
     return total;
   }
 
@@ -64,7 +64,8 @@ function App() {
         dispatch(maxOffsetThunk());
         dispatch(setOffset(actualOffset));
         dispatch(setLastPostsNumber(res));
-      });
+      })
+      .catch(() => dispatch(someThunk(0)));
     }
   }, []);
 
