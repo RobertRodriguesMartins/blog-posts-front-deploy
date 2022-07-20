@@ -5,7 +5,8 @@ const initialState = {
   maxOffset: 0,
   actualOffset: 0,
   form: '',
-  totalPosts: 0
+  totalPosts: 0,
+  token: false
 };
 
 const newsReducer = (state = initialState, action) => {
@@ -49,6 +50,11 @@ const newsReducer = (state = initialState, action) => {
       return {
         ...state,
         form: action.payload,
+      };
+    case 'auth/token':
+      return {
+        ...state,
+        token: action.payload,
       };
     case 'reset':
       return {
