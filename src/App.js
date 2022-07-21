@@ -22,11 +22,15 @@ function App() {
   const actualReduxMaxOffset = useSelector((state) => state.news.maxOffset);
 
   async function getMaxPosts() {
-    const rawData = await fetch(API_URL + 'post/count', {
-      method: 'GET',
-    });
-    const total = await rawData.json();
-    return total;
+    try {
+      const rawData = await fetch(API_URL + 'post/count', {
+        method: 'GET',
+      });
+      const total = await rawData.json();
+      return total;
+    } catch(e) {
+      console.log('erro ao carregar')
+    }
   }
 
   function checkIfExists(e, actualOffset, maxOffset) {
