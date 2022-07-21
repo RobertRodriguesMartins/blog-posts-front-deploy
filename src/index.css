@@ -614,11 +614,6 @@ a {
     display: none;
   }
 
-  .nav-title {
-    display: block;
-    flex-grow: 0;
-  }
-
   .nav-user-mobile {
     display: unset;
     position: absolute;
@@ -635,7 +630,8 @@ a {
   .sidebar h2 {
     text-align: center;
     font-family: 'Georgia';
-    font-size: 32px;
+    flex-grow: 1;
+    font-size: 150%;
   }
 
   .app-news-section {
