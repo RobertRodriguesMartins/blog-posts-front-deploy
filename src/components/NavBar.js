@@ -45,7 +45,7 @@ function NavBar() {
       <section className="nav-user-mobile">
         {isNavOpened && isLogged && <span>icon</span>}
       </section>
-      <Link to="/" className='nav-title'>
+      <Link to="/" className="nav-title">
         <h2>Blog Posts</h2>
       </Link>
       <section className="nav-tools">
@@ -64,7 +64,9 @@ function NavBar() {
           ) : (
             <>
               <li>Fazer Login</li>
-              <li>Criar Perfil</li>
+              <Link to="/users/create">
+                <li id="/users/create">Criar Perfil</li>
+              </Link>
             </>
           )}
           <li>Sobre</li>
