@@ -8,11 +8,5 @@ export default function generateJsonFormData(form, expect) {
     return { ...curr, ...acc };
   }, {});
 
-  if(reducedValues.categories) {
-    reducedValues.categories = reducedValues.categories.split(',');
-  } else {
-    reducedValues.categories = [];
-  }
-
-  return JSON.stringify(reducedValues);
+  return reducedValues
 }
