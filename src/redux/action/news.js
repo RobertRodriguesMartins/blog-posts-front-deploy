@@ -57,7 +57,7 @@ export const setForm = (payload) => {
   };
 };
 
-export const token = (payload) => {
+export const setToken = (payload) => {
   return {
     type: 'auth/token',
     payload: payload,
@@ -94,25 +94,31 @@ export const someThunk = (offset) => async (dispatch) => {
   }
 };
 
-export const createUserThunk = (form) => async (dispatch) => {
+export const createUserThunk = (myform) => async (dispatch) => {
   try {
-    const requestBody = generateJsonFormData(form, [
+    const form = new FormData(myform);
+    const rawRequestBody = generateJsonFormData(form, [
       'displayName',
       'email',
       'password',
     ]);
+    const requestBody = JSON.stringify(rawRequestBody);
+    const headers = new Headers();
+    headers.set('Content-type', 'application/json');
     const rawData = await fetch(API_URL + `user`, {
       method: 'POST',
+      headers,
       body: requestBody,
     });
     const { token } = await rawData.json();
     if (token) {
       localStorage.setItem('token', token);
-      dispatch(token(true));
+      dispatch(setToken(true));
+      dispatch(create());
       return;
     }
   } catch (e) {
-    dispatch(token(false));
+    dispatch(setToken(false));
   }
 };
 
@@ -135,11 +141,17 @@ export const createThunk = (myForm) => async (dispatch) => {
     const token = await getToken();
     const form = new FormData(myForm);
 
-    const requestBody = generateJsonFormData(form, [
+    const rawRequestBody = generateJsonFormData(form, [
       'content',
       'categories',
       'title',
     ]);
+    if(rawRequestBody.categories) {
+      rawRequestBody.categories = rawRequestBody.categories.split(',');
+    } else {
+      rawRequestBody.categories = [];
+    }
+    const requestBody = JSON.stringify(rawRequestBody);
     const headers = new Headers();
     headers.set('authorization', token);
     headers.set('Content-type', 'application/json');
