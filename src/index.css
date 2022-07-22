@@ -322,6 +322,7 @@ a {
   opacity: 0;
   background: #888;
   border: none;
+  float: right;
   cursor: pointer;
 }
 
@@ -507,7 +508,7 @@ a {
   align-items: center;
   width: 80%;
   margin: 0 auto !important;
-  display: block;
+  display: block !important;
 }
 
 @keyframes fade-button {
